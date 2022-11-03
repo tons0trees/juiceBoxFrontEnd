@@ -35,3 +35,20 @@ export async function login(username, password) {
         console.error(error)
     }
 }
+
+export async function getPostsWithTags(searchTags, authToken) {
+    if(authToken) {
+        requestObj.headers.Authorization = `Bearer ${authToken}`
+    }
+
+    try {
+        const response = await fetch(`${url}/api/tags/${searchTags}/posts`, requestObj)
+
+        const {posts} = await response.json()
+
+        console.log('hopefully tags show', posts)
+
+    } catch (error) {
+        console.error(error)
+    }
+}
