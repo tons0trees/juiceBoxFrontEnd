@@ -6,16 +6,16 @@ const PostList = () => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        async function useGetPosts() {
+        async function callGetPosts() {
             const newPosts = await getPosts()
             setPosts(newPosts)
         }
-        useGetPosts()
+        callGetPosts()
     },[])
 
     return (
-        <div id='post_display'>
-            {posts.map(elem => <IndividualPost />)}
+        <div id='post_list'>
+            {posts.map(elem => <IndividualPost key={`post_${elem.id}`} post={elem}/>)}
         </div>
     );
 };

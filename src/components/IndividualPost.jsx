@@ -1,9 +1,11 @@
 import React from 'react'
 
-const IndividualPost = () => {
+const IndividualPost = ({post}) => {
     return (
-        <div id='individual_post'>
-            <p>I'm a post!</p>
+        <div className='individual_post'>
+            <h3>{post.title}: <small>{post.author.username}</small></h3>
+            <p>{post.content}</p>
+            <p>{post.tags.map(elem => <span key={`tag_${elem.id}`}> {elem.name} </span>)}</p>
         </div>
     );
 };
