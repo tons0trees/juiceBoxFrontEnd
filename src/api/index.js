@@ -21,7 +21,7 @@ export async function getPosts(authToken) {
     }
 }
 
-export async function login(username, password) {
+export async function login({username, password}) {
     requestObj.method = 'POST'
     requestObj.body =JSON.stringify({ username, password })
 
